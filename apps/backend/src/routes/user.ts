@@ -1,7 +1,9 @@
 import express from  "express";
 import { usermodel } from "../db";
 import jwt from "jsonwebtoken";
-
+import {z} from "zod";
+import { Request,Response } from "express";
+import { Usermiddleware } from "../middleware/user";
 
 const secretpassword="hjbvkjjber1242323"
 
@@ -34,4 +36,22 @@ userrouter.post("/signin", async (req,res)=>{
     const token=jwt.sign({userid:user._id},secretpassword)  
          res.json({ message: "Signin successful" ,token: token});
        
+})
+
+
+const updateuser=z.object({
+    username:z.string().optional() ,
+    password:z.string().optional()
+})
+
+userrouter.put("/update", Usermiddleware, async (req:Request,res:Response)=>{
+    const {success}=updateuser.safeParse(req.body)
+
+    if(!success){
+        return  res.json({message:"error while updating the information "})
+    }
+
+    await usermodel.updateOne({id:req.userid},req.body)
+    res.json({message:"updated information successfully"})
+    
 })

@@ -1,9 +1,7 @@
 import  express  from "express";
 import  jwt  from "jsonwebtoken";
 import { Request,Response,NextFunction } from "express";
-
 const secretpassword="hjbvkjjber1242323"
-
 
 const app=express()
 app.use(express.json())
@@ -21,7 +19,8 @@ export  function Usermiddleware(req:Request,res:Response,next:NextFunction){
             
             (req as any).user={  username:user.username,
                     password:user.password,
-                    email :user.email,}
+                    email :user.email,
+                    userid:user._id}
                 
             next()
 
