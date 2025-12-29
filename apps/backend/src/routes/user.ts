@@ -3,7 +3,7 @@ import { usermodel } from "../db";
 import jwt from "jsonwebtoken";
 import {z} from "zod";
 import { Request,Response } from "express";
-import { Usermiddleware } from "../middleware/user";
+import { Usermiddleware } from "../middleware/userauth";
 
 const secretpassword="hjbvkjjber1242323"
 

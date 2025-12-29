@@ -11,11 +11,15 @@ const userschema=new Schema({
 })
 
 const accountschema=new Schema({
-    userid:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"Users",
-    required:true
-    }
+    userid:
+        {type:mongoose.Schema.Types.ObjectId,
+        ref:"Users",
+        required:true },
+
+    accountbalance:
+        {
+            type:Number
+        }
 })
 
 export const usermodel=mongoose.model("Users",userschema)

@@ -1,7 +1,10 @@
 import express from "express";
 import { userrouter } from "./routes/user";
+import { accountrouter } from "./routes/account";
+
 const app=express()
 
-app.use("/api/v1",userrouter)
+app.use("/api/users",userrouter)
+app.use("/api/account",accountrouter)
 
 app.listen(3000)
