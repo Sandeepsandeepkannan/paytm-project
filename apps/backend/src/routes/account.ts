@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 
 export const accountrouter=express.Router()
 
-accountrouter.get("/dashboard",accountmiddleware,(req,res)=>{
+accountrouter.get("/balance",accountmiddleware,(req,res)=>{
     const  balance=(req as any).accountbalance
 
     res.json({balance})
@@ -54,3 +54,6 @@ accountrouter.post("/transaction",accountmiddleware,  async(req,res)=>{
          res.json({message:"transfer successful"})          
 
 })
+
+
+

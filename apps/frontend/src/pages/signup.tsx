@@ -1,28 +1,27 @@
 import { useRef } from "react";
-import {Navigate}  from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export  function Signup(){
 
-      const nameref=useRef<HTMLInputElement | null>(null)
+      const usernameref=useRef<HTMLInputElement | null>(null)
       const passwordref=useRef<HTMLInputElement | null>(null)
       const emailref=useRef<HTMLInputElement | null>(null)
+      const navigate = useNavigate();
 
             async function Signupdata(){
 
                try{   
-                     const name=nameref.current?.value ??""
+                     const username=usernameref.current?.value ??""
                      const password=passwordref.current?.value ??""
                      const email=emailref.current?.value ??""
 
-                     const responsedata= await fetch("http://localhost:3000/signup",{ method: "POST", headers: {"Content-Type": "application/json"},
-                                                                              body :JSON.stringify({name,password,email})})
+                     const responsedata= await fetch("http://localhost:3000/api/users/signup",{ method: "POST", headers: {"Content-Type": "application/json"},
+                                                                              body :JSON.stringify({username,password,email})})
                         
-                     console.log("signed in")                                                        
-                     if(responsedata){
-                        alert("successfully signed in")
-                        return <Navigate to="/signin" />;
-                     } 
-                     else{alert("something went wrong")}                      
+                     console.log("signed up")                                                        
+                     if(!responsedata){
+                          alert("something went wrong") }    
+                     navigate("/signin");                       
                   }           
               catch (error) {
                      alert("Server is not running or network error");
@@ -40,7 +39,7 @@ export  function Signup(){
 
                       <div className="flex flex-col  mb-6">
                          <label className=" text-black font-semibold h-12 pl-25  pt-2 text-[20px]">Username  </label>
-                          <input ref={nameref} className="bg-gray-300 h-12 w-80 rounded ml-25 pl-5" type="text" placeholder="Username" />
+                          <input ref={usernameref} className="bg-gray-300 h-12 w-80 rounded ml-25 pl-5" type="text" placeholder="Username" />
                        </div>
 
                         <div className="flex flex-col  mb-6">

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 import { Model } from "mongoose";
-import { required } from "zod/mini";
+
 
 const userschema=new Schema({
     username:String,

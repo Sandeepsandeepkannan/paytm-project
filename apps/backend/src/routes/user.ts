@@ -55,3 +55,18 @@ userrouter.put("/update", Usermiddleware, async (req:Request,res:Response)=>{
     res.json({message:"updated information successfully"})
     
 })
+
+
+userrouter.get("/bulk", Usermiddleware, async (req, res) => {
+  try {
+    const users = await usermodel.find();
+
+    res.json({
+      users: users
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error fetching users"
+    });
+  }
+});    

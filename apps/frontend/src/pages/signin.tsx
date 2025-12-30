@@ -1,19 +1,33 @@
 import { useRef } from "react"
-
+import { useNavigate } from "react-router-dom";
 
 export  function Signin(){
 
-      const nameref=useRef<HTMLInputElement | null>(null)
+      const usernameref=useRef<HTMLInputElement | null>(null)
       const passwordref=useRef<HTMLInputElement | null>(null)
+      const navigate = useNavigate();
             async function Signindata(){
-                const name=nameref.current?.value ??""
+
+            try{  
+                const username=usernameref.current?.value ??""
                 const password=passwordref.current?.value ??""
-                const responsedata= await fetch("http://localhost:3000/signin",{ method: "POST", headers: {"Content-Type": "application/json"},
-                                                                          body :JSON.stringify({name,password})})    
+                const response= await fetch("http://localhost:3000/api/users/signin",{ method: "POST", headers: {"Content-Type": "application/json"},
+                                                                          body :JSON.stringify({username,password})})    
                 console.log("signed in") 
-                const data=await responsedata.json();
-                localStorage.setItem("token",data.token)                     
-            }           
+                const data = await response.json();
+                if(!response.ok){
+                       alert(data.message || "Signin failed");
+                        return;}
+
+                localStorage.setItem("token",data.token)
+                alert("Successfully signed in");
+                 navigate("/dashboard");
+              }
+               catch (error) {
+                     alert("Server is not running or network error");
+                              console.error(error);
+                           }
+                        }      
 
     return <div className=" bg-[#7f7f7f] h-screen flex justify-center items-center">
                   <div className="bg-[#ffffff] h-130 w-130  rounded-2xl ">
@@ -25,7 +39,7 @@ export  function Signin(){
 
                       <div className="flex flex-col  mb-6">
                          <label className=" text-black font-semibold h-12 pl-25  pt-2 text-[20px]">Username  </label>
-                          <input ref={nameref} className="bg-gray-300 h-12 w-80 rounded ml-25 pl-5" type="text" placeholder="Username" />
+                          <input ref={usernameref} className="bg-gray-300 h-12 w-80 rounded ml-25 pl-5" type="text" placeholder="Username" />
                        </div>
 
                         <div className="flex flex-col  mb-6">
