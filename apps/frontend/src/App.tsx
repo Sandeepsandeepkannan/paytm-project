@@ -1,4 +1,4 @@
-import { Signin } from "./pages/signin"
+import { Signup } from "./pages/signup"
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-       <Signin/>
+       <Signup/>
     </>
   )
 }
