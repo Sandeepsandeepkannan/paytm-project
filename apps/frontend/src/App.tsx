@@ -1,25 +1,22 @@
 
-// import { Routes, Route } from "react-router-dom";
-// import { Signup } from "./pages/signup"
-// import { Signin } from "./pages/signin";
-// import { Dashboard } from "./pages/dashboard";
-
-// import  Login  from "./pages/page1signin"
+import { Routes, Route } from "react-router-dom";
+import { Dashboard } from "./pages/dashboard";
 import { Signup } from "./pages/signup"
+import Signinpage from "./pages/signin";
+
 
 function App() {
 
 
   return (
-      // <div>  <Login/></div>
-      <div> <Signup/></div>
-
-    //  <Routes>
-    //   <Route path="/" element={<Signup />} />
-    //   <Route path="/signup" element={<Signup />} />
-    //   <Route path="/signin" element={<Signin />} />
-    //    <Route path="/dashboard" element={<Dashboard/>} />
-    // </Routes>
+      
+    
+     <Routes>
+     <Route path="/" element={<Signinpage />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/signin" element={<Signinpage />} />
+       <Route path="/dashboard" element={<Dashboard/>} />
+    </Routes>
   )
 }
 

@@ -33,11 +33,11 @@ export  function Signup(){
                         }
 
  return <div className=" bg-[#7f7f7f] h-screen flex justify-center items-center">
-                  <div className="flex items-center justify-center bg-white">
+                  <div className="flex w-110 items-center justify-center bg-white">
                 <div className="w-full max-w-md p-8 space-y-6">
 
                   <h2 className="text-2xl font-bold text-gray-800">
-                    Signup your account
+                    Create  your account
                   </h2>
 
                   <p className="text-sm text-gray-500">
@@ -65,7 +65,7 @@ export  function Signup(){
 
                   <button  onClick={Signupdata} className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:scale-[1.02] transition shadow-lg">
                    <Lock size={18} />
-                    Sign in securely
+                    Sign up securely
                   </button>
 
                   <div className="flex justify-between text-sm text-blue-600">
