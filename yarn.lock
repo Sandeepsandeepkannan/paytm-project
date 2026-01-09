@@ -826,6 +826,7 @@ available-typed-arrays@^1.0.7:
   version "1.0.0"
   resolved "file:apps/backend"
   dependencies:
+    "@types/cors" "^2.8.19"
     "@types/express" "^5.0.6"
     "@types/mongoose" "^5.11.96"
     cors "^2.8.5"
@@ -2236,6 +2237,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lucide-react@^0.562.0:
+  version "0.562.0"
+  resolved "https://registry.npmjs.org/lucide-react/-/lucide-react-0.562.0.tgz"
+  integrity sha512-82hOAu7y0dbVuFfmO4bYF1XEwYk/mEbM5E+b1jgci/udUBEE/R7LF5Ip0CCEmXe8AybRM8L+04eP+LGZeDvkiw==
+
 magic-string@^0.30.21:
   version "0.30.21"
   resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz"
@@ -2624,7 +2630,7 @@ react-router@7.11.0:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
 
-react@^19.2.0, react@^19.2.3, react@>=18:
+"react@^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^19.2.0, react@^19.2.3, react@>=18:
   version "19.2.3"
   resolved "https://registry.npmjs.org/react/-/react-19.2.3.tgz"
   integrity sha512-Ku/hhYbVjOQnXDZFv2+RibmLFGwFdeeKHFcOTlrt7xplBnya5OGn/hIRDsqDiSUcfORsDC7MPxwork8jBwsIWA==
