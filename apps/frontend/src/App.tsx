@@ -4,13 +4,15 @@
 // import { Signin } from "./pages/signin";
 // import { Dashboard } from "./pages/dashboard";
 
-import  Login  from "./pages/page1"
+// import  Login  from "./pages/page1signin"
+import { Signup } from "./pages/signup"
 
 function App() {
 
 
   return (
-      <div>  <Login/></div>
+      // <div>  <Login/></div>
+      <div> <Signup/></div>
 
     //  <Routes>
     //   <Route path="/" element={<Signup />} />

@@ -1,8 +1,11 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Eye, EyeOff, Lock } from "lucide-react";
 
 export  function Signup(){
 
+      const [showPassword, setShowPassword] = useState(false);
       const usernameref=useRef<HTMLInputElement | null>(null)
       const passwordref=useRef<HTMLInputElement | null>(null)
       const emailref=useRef<HTMLInputElement | null>(null)
@@ -30,32 +33,54 @@ export  function Signup(){
                         }
 
  return <div className=" bg-[#7f7f7f] h-screen flex justify-center items-center">
-                  <div className="bg-[#ffffff] h-150 w-130  rounded-2xl ">
-                    <div>
-                      <div className="h-30 w-full  text-[40px] font-bold">
-                        <div className="pl-47">Sign up</div>
-                        <div className="text-[20px] pl-14 pt-2  font-normal text-gray-600  ">Enter your information to create your account</div>
-                      </div>
+                  <div className="flex items-center justify-center bg-white">
+                <div className="w-full max-w-md p-8 space-y-6">
 
-                      <div className="flex flex-col  mb-6">
-                         <label className=" text-black font-semibold h-12 pl-25  pt-2 text-[20px]">Username  </label>
-                          <input ref={usernameref} className="bg-gray-300 h-12 w-80 rounded ml-25 pl-5" type="text" placeholder="Username" />
-                       </div>
+                  <h2 className="text-2xl font-bold text-gray-800">
+                    Signup your account
+                  </h2>
 
-                        <div className="flex flex-col  mb-6">
-                         <label className="text-black font-semibold h-12 pl-25   pt-2 text-[20px]">Password  </label>
-                         <input ref={passwordref} className="bg-gray-300 h-12 w-80 rounded ml-25 pl-5" type="password" placeholder="Password" />
-                       </div>
+                  <p className="text-sm text-gray-500">
+                    Welcome to Paytm 
+                  </p>
 
-                       <div className="flex flex-col  mb-6">
-                         <label className="text-black font-semibold h-12 pl-25   pt-2 text-[20px]">Email  </label>
-                         <input ref={emailref} className="bg-gray-300 h-12 w-80 rounded ml-25 pl-5" type="email" placeholder="email" />
-                       </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-600">Username </label>
+                    <input  ref={usernameref}  type="text" placeholder="Enter your Username" className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"/>
+                  </div>
 
-                    </div>
-                    <div>
-                         <button onClick={Signupdata} className="h-13 w-35 bg-black font-bold text-white mt-10 ml-45 rounded-2xl">Sign up</button>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-600"> Password </label>
+                    <div className="relative">
+                      <input   ref={passwordref}  type={showPassword ? "text" : "password"}  placeholder="Enter password" className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none pr-10"/>
+                      <button  type="button"  onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3 text-gray-500 hover:text-blue-600" > {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                      </button>
                     </div>
                   </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-600">Email</label>
+                    <input  ref={emailref}  type="text" placeholder="Enter your Username" className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"/>
+                  </div>
+
+                  <button  onClick={Signupdata} className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:scale-[1.02] transition shadow-lg">
+                   <Lock size={18} />
+                    Sign in securely
+                  </button>
+
+                  <div className="flex justify-between text-sm text-blue-600">
+                    
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1 h-px bg-gray-200" />
+                    <span className="text-xs text-gray-400"></span>
+                    <div className="flex-1 h-px bg-gray-200" />
+                  </div>
+
+                 
+
+                </div>
+         </div>
            </div>
 }
