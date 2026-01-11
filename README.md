@@ -77,3 +77,8 @@ View transaction history
 
 This project is for learning and demonstration purposes
 No real money transactions are involved
+
+## 📸 Screenshot
+
+![Paytm Project Screenshot](https://raw.githubusercontent.com/Sandeepsandeepkannan/paytm-project/main/Screenshot%202026-01-09%20122719.png)
+
